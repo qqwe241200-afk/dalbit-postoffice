@@ -22,46 +22,9 @@
 @media(max-width:700px){.office-stage{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 14px;min-height:0}.office-art{width:calc(100% + 24px);height:auto;left:auto;transform:none;grid-column:1/-1;margin:0 -12px 6px}.hotspot{position:static;justify-content:center;font-size:11px;white-space:normal;min-height:43px;box-shadow:none}.spot-stamp{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.folded-envelope.is-posting{opacity:1}}
 
-
-/* Visual backgrounds only. Home artwork and all application behavior are retained. */
-body{isolation:isolate}
-.tab-backgrounds{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:transparent}
-.tab-scene{position:absolute;inset:0;display:none;background-size:cover;background-position:center;background-repeat:no-repeat;animation:tab-scenery-arrive .7s ease both}
-.scene-office{background-image:linear-gradient(180deg,#081427db,#0b1733d6 55%,#0d192bdc),url('scene-office.webp')}
-.scene-write{background-image:linear-gradient(90deg,#08142bcc,#0d193382 60%,#09152b8a),linear-gradient(180deg,#07112680,transparent 40%,#0b162dc9),url('scene-write.webp');background-position:65% center}
-.scene-read{background-image:linear-gradient(180deg,#08142bbd,#09172e80 55%,#0d182bd9),url('scene-read.webp');background-position:65% center}
-.scene-mailbox{background-image:linear-gradient(180deg,#09142ac7,#0c183292 55%,#0d182bd4),url('scene-mailbox.webp')}
-.scene-stars{background-image:linear-gradient(180deg,#08142bc4,#0b17377a 45%,#0c182cce),url('scene-stars.webp');background-position:60% center}
-.scene-stamps{background-image:linear-gradient(180deg,#09142bc4,#101a2f8c 50%,#0c182dd6),url('scene-stamps.webp')}
-.scene-about{background-image:linear-gradient(180deg,#08142bc7,#0c1832a3 50%,#0c182dd9),url('scene-about.webp');background-position:65% center}
-body:has(#office:not([hidden])) .scene-office,
-body:has(#write:not([hidden])) .scene-write,
-body:has(#read:not([hidden])) .scene-read,
-body:has(#mailbox:not([hidden])) .scene-mailbox,
-body:has(#stars:not([hidden])) .scene-stars,
-body:has(#stamps:not([hidden])) .scene-stamps,
-body:has(#about:not([hidden])) .scene-about{display:block}
-#office .office-art{aspect-ratio:1300/760;object-fit:cover;object-position:center}
-#office .office-stage{background:#11213a;border-color:#e7cb9170;box-shadow:0 20px 65px #02081780,0 0 35px #d8a85112}
-#office .hotspot{background:#101c30eb;border-color:#f0d293b3;box-shadow:0 4px 20px #02061180}
-#office .hotspot:hover{background:#eed29b;color:#182437}
-#office .room-dock{background:#102039e6;backdrop-filter:blur(8px)}
-#write .panel,#mailbox .panel,#stars .panel,#about .panel{background:#112139e0;border-color:#c7b78c42;backdrop-filter:blur(10px)}
-#mailbox .mail-card,#stars .stat,#stamps .album-item,#stamps .panel{background:#12223be0;border-color:#c7b78c42;backdrop-filter:blur(10px)}
-#stars .constellation{background:radial-gradient(ellipse at 50% 100%,#294562c9,#101f38de 70%);backdrop-filter:blur(8px)}
-#stamps .album-date{background:#102039e6;backdrop-filter:blur(8px)}
-#read .letter-envelope{background:linear-gradient(145deg,#243650e8,#13223beb);backdrop-filter:blur(8px)}
-#read .season-note{background:#102039d9;backdrop-filter:blur(8px)}
-#about details{background:#102039b3;backdrop-filter:blur(8px)}
-#office .page-top h2,#write .page-top h2,#read .page-top h2,#mailbox .page-top h2,#stars .page-top h2,#stamps .page-top h2,#about .page-top h2{text-shadow:0 3px 24px #020615b3}
-@keyframes tab-scenery-arrive{from{opacity:0}to{opacity:1}}
-@media(max-width:700px){.tab-scene{background-position:60% center}.scene-office{background-position:65% center}.scene-write{background-position:72% center}.scene-mailbox{background-position:68% center}.scene-read{background-position:72% center}.scene-about{background-position:74% center}#office .hotspot{box-shadow:none}}
-@media(prefers-reduced-motion:reduce){.tab-scene{animation:none}}
-
 </style>
 </head>
 <body>
-<div class="tab-backgrounds" aria-hidden="true"><div class="tab-scene scene-office"></div><div class="tab-scene scene-write"></div><div class="tab-scene scene-read"></div><div class="tab-scene scene-mailbox"></div><div class="tab-scene scene-stars"></div><div class="tab-scene scene-stamps"></div><div class="tab-scene scene-about"></div></div>
 <a class="skip" href="#main">본문 바로가기</a>
 <header class="topbar"><div class="wrap header"><a class="brand" href="#home" aria-label="달빛 우체국 홈"><span class="brand-mark" aria-hidden="true">☾</span><span><strong>달빛 우체국</strong><small>MOONLIGHT POST OFFICE</small></span></a><button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">메뉴 ☰</button><nav id="nav" aria-label="주 메뉴"><a href="#office" class="experience-link">우체국 안으로</a><a href="#write">편지 쓰기</a><a href="#read">편지 받기</a><a href="#mailbox">보관함</a><a href="#stars">나의 별자리</a><a href="#about">이용 안내</a></nav></div></header>
 <main id="main" tabindex="-1">
@@ -75,7 +38,27 @@ body:has(#about:not([hidden])) .scene-about{display:block}
 <section class="page wrap" id="office" hidden aria-labelledby="office-title">
 <div class="office-header"><div class="page-top"><span class="eyebrow">INSIDE THE MOONLIGHT POST OFFICE</span><h2 id="office-title" tabindex="-1">불 켜진 우체국에 오신 걸 환영해요.</h2><p>마음이 가는 곳을 눌러 천천히 둘러보세요.</p></div><span class="office-weather" id="office-date"></span></div>
 <div class="office-stage">
-<img class="office-art" src="scene-office.webp" width="1300" height="760" alt="달이 보이는 창문, 편지 쓰는 책상, 우체통과 서랍이 있는 따뜻한 밤의 우체국" loading="lazy" decoding="async">
+<svg class="office-art" viewBox="0 0 1300 760" role="img" aria-label="달이 보이는 창문, 편지 쓰는 책상, 우체통과 서랍이 있는 따뜻한 밤의 우체국" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="room-wall" x2="0" y2="1"><stop stop-color="#283a4b"/><stop offset="1" stop-color="#1b2a3a"/></linearGradient><linearGradient id="room-floor" x2="0" y2="1"><stop stop-color="#514b43"/><stop offset="1" stop-color="#2c3034"/></linearGradient><linearGradient id="night-window" x2="0" y2="1"><stop stop-color="#132943"/><stop offset=".65" stop-color="#284963"/><stop offset="1" stop-color="#496775"/></linearGradient><linearGradient id="desk-wood" x2="0" y2="1"><stop stop-color="#c09964"/><stop offset="1" stop-color="#886a48"/></linearGradient><radialGradient id="lamp-light"><stop stop-color="#f4d290" stop-opacity=".8"/><stop offset="1" stop-color="#f4d290" stop-opacity="0"/></radialGradient><pattern id="wall-grain" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12L12 0" stroke="#fff" stroke-opacity=".015"/></pattern></defs>
+<path fill="url(#room-wall)" d="M0 0h1300v760H0z"/><path fill="url(#wall-grain)" d="M0 0h1300v560H0z"/>
+<path d="M0 560h1300v200H0z" fill="url(#room-floor)"/><path d="M0 560h1300M0 569h1300" stroke="#b2a07a" stroke-opacity=".3" stroke-width="4"/><g stroke="#1c222a" stroke-width="2" opacity=".4"><path d="M0 630h1300M0 710h1300M180 560L80 760M420 560l-40 200M650 560v200M880 560l40 200M1110 560l100 200"/></g>
+<path d="M615 85h380v335H615z" fill="#132333" stroke="#9c8261" stroke-width="13"/><path d="M628 98h354v304H628z" fill="url(#night-window)"/>
+<circle cx="879" cy="167" r="34" fill="#f7dfac"/><circle cx="890" cy="156" r="30" fill="#203a54"/>
+<g fill="#efd6a2"><circle cx="667" cy="138" r="2"/><circle cx="736" cy="176" r="1.5"/><circle cx="943" cy="127" r="1.5"/><circle cx="925" cy="231" r="1"/><circle cx="697" cy="223" r="1"/><circle cx="823" cy="115" r="1.5"/></g>
+<path d="M628 296q80-14 170 0t184-4v110H628" fill="#263f52"/><g class="window-water" stroke="#e9d6a5" stroke-width="3" opacity=".4"><path d="M849 315h50m-66 16h85m-103 17h120m-132 19h144m-159 20h175"/></g><path d="M805 94v313M627 255h355" stroke="#9c8261" stroke-width="9"/>
+<path d="M600 410h410v17H600z" fill="#ad8a60"/><path d="M601 430h408v12H601z" fill="#101d2c" opacity=".4"/>
+<path d="M592 80q-55 110-16 330l42 3q-26-143 0-326zM994 83q55 110 26 327l-41 3q19-148 0-326z" fill="#74808a" opacity=".4"/>
+<g transform="translate(105 120)"><path d="M0 0h280v180H0z" fill="#9e7c54"/><path d="M10 10h260v160H10z" fill="#c1ad85"/><path d="M32 33h76v92H32z" fill="#ece2ca" transform="rotate(-7 70 70)"/><path d="M140 25h76v105h-76z" fill="#dfb5a0" transform="rotate(8 180 80)"/><path d="M163 68h30m-30 11h30m-30 11h20" stroke="#9b7867" stroke-width="2"/><circle cx="70" cy="70" r="20" fill="#687e91"/><path d="M58 74l10-19 15 19" fill="none" stroke="#e6d3a7" stroke-width="2"/><circle cx="72" cy="29" r="4" fill="#6d4438"/><circle cx="180" cy="24" r="4" fill="#6d4438"/></g>
+<g transform="translate(100 365)"><path d="M0 0h260v223H0z" fill="#6d5c48"/><path d="M-8-13h276V4H-8z" fill="#9f825e"/><g fill="#8d7453" stroke="#4f453b" stroke-width="3"><path d="M13 17h111v57H13zM136 17h111v57H136zM13 86h111v57H13zM136 86h111v57H136zM13 155h111v53H13zM136 155h111v53H136z"/></g><g fill="#d4b77d"><path d="M51 39h35v9H51zM174 39h35v9h-35zM51 108h35v9H51zM174 108h35v9h-35zM51 174h35v9H51zM174 174h35v9h-35z"/></g><g fill="#d1be9b"><path d="M30-40h95v25H30zM40-48h85v7H40zM28-15h99v7H28z"/></g><path d="M195-10v-54" stroke="#63765c" stroke-width="5"/><path d="M196-37q-43-40-36-6 13 17 36 14M197-49q38-38 37-7-8 18-37 17" fill="#71836a"/><path d="M175-20h44l-8 23h-29z" fill="#b79675"/></g>
+<ellipse cx="690" cy="638" rx="275" ry="52" fill="#101824" opacity=".4"/>
+<path d="M448 470h466l70 100H388z" fill="url(#desk-wood)"/><path d="M388 570h596v18H388z" fill="#73553a"/><path d="M420 587h25l-20 114h-22zM935 587h25l16 114h-22zM500 587h22v79h-22zM875 587h22v79h-22z" fill="#5d4e3e"/>
+<path d="M553 499h160l30 54H539z" fill="#eee3c9" class="desk-paper"/><g stroke="#9b9d95" opacity=".55"><path d="M574 514h111m-112 10h126m-130 10h103"/></g><path d="M708 529l65-44" stroke="#494249" stroke-width="6" stroke-linecap="round"/><path d="M766 489l11-8" stroke="#d5b275" stroke-width="5"/>
+<path d="M796 530h56v-21h-56z" fill="#e7d5b4"/><path d="M852 513q23 0 12 14h-12" fill="none" stroke="#e7d5b4" stroke-width="5"/><path d="M808 489q-6-12 0-22m16 22q-6-12 0-22" stroke="#e7d5b455" fill="none" stroke-width="2"/>
+<ellipse class="lamp-glow" cx="475" cy="390" rx="145" ry="165" fill="url(#lamp-light)"/><path d="M457 510h70m-34-4V385" stroke="#c3a56e" stroke-width="7" stroke-linecap="round"/><path d="M457 329h71l28 64H429z" fill="#e7c68b"/><path d="M432 393h122" stroke="#f8dfb1" stroke-width="5"/>
+<g transform="translate(1070 365)"><path d="M0 53Q0 0 57 0t57 53v177H0z" fill="#955b4c"/><path d="M9 54Q9 10 57 10t48 44" fill="#a66c58"/><path d="M20 68h74v15H20z" fill="#302b2d" stroke="#c19b78" stroke-width="3"/><path d="M26 120h62v70H26z" fill="#a86f58" stroke="#d2ab80" stroke-width="2"/><path d="M39 139h35v23H39zM39 139l18 12 17-12" fill="none" stroke="#e7cb9a" stroke-width="2"/><path d="M47 230h20v57H47zM28 284h58v10H28z" fill="#473c36"/></g>
+<path d="M1075 125h102v66h-102z" fill="#b69b70"/><path d="M1082 132h88v52h-88z" fill="#24384b"/><text x="1126" y="155" fill="#e8d3aa" font-size="12" font-family="serif" text-anchor="middle" letter-spacing="2">OPEN</text><text x="1126" y="174" fill="#c8b790" font-size="9" font-family="serif" text-anchor="middle">마음은 천천히</text>
+<path d="M340 15h620" stroke="#8d805e" stroke-width="2"/><g fill="#ead39e"><circle cx="350" cy="16" r="4"/><circle cx="450" cy="16" r="4"/><circle cx="550" cy="16" r="4"/><circle cx="650" cy="16" r="4"/><circle cx="750" cy="16" r="4"/><circle cx="850" cy="16" r="4"/><circle cx="950" cy="16" r="4"/></g>
+</svg>
 <a class="hotspot spot-desk" href="#write">책상 · 편지 쓰기</a><a class="hotspot spot-post" href="#read">우체통 · 편지 받기</a><a class="hotspot spot-drawer" href="#mailbox">서랍 · 내 편지</a><a class="hotspot spot-window" href="#stars">창가 · 별자리</a><a class="hotspot spot-stamp" href="#stamps">게시판 · 우표첩</a>
 </div>
 <div class="office-below"><div class="keeper-line"><span class="keeper-badge" aria-hidden="true">☾</span><p><strong>달빛지기의 인사</strong><span id="keeper-greeting">오늘도 불을 켜 두었어요. 하고 싶은 말이 있다면 책상에 앉아 보세요.</span></p></div><a class="btn quiet" href="#home">밤바다로 나가기 ↗</a></div>
@@ -211,5 +194,3 @@ updatePrompt();restoreDraft();route(false);
 </script>
 </body>
 </html>
-<!-- redeploy-20261106 -->
-
